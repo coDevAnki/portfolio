@@ -1,0 +1,193 @@
+@use "./mixins" as *;
+.works-container {
+  padding-top: 100px;
+}
+.featured-project {
+  @include beforeTransition(100px, 1s);
+  display: grid;
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr 2fr 2fr 1fr;
+
+  &-content {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    padding: 2.5rem;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.9;
+    @media screen and (min-width: 765px) {
+      opacity: 1;
+      background-color: transparent;
+      grid-column: 5 /-1;
+      text-align: right;
+    }
+  }
+
+  &-title {
+    color: var(--green);
+    font-size: 1rem;
+    line-height: 0.6;
+    margin-bottom: 0.5em;
+  }
+
+  &-header {
+    color: var(--white);
+    font-size: clamp(22px, 3vw, 30px);
+    margin-bottom: 1em;
+    line-height: 1.2;
+  }
+
+  &-paragraph {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    pointer-events: all;
+
+    color: var(--lightest-grey);
+    @media screen and (min-width: 765px) {
+      background-color: var(--light-navy);
+      padding: 1rem;
+      transition: box-shadow var(--transition);
+      box-shadow: -10px 10px 30px -15px var(--navy-shadow);
+      &:hover {
+        box-shadow: -20px 20px 30px -15px var(--navy-shadow);
+      }
+    }
+  }
+  &-tech_used {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-grey);
+    word-spacing: 1rem;
+    pointer-events: none;
+    text-transform: capitalize;
+    @media screen and (min-width: 765px) {
+      padding: 0 0 0 30%;
+    }
+  }
+  &-links {
+    display: flex;
+
+    cursor: pointer;
+    pointer-events: auto;
+    a {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 0 0.4rem;
+      transition: var(--transition);
+    }
+    .link_github {
+      background: center / contain no-repeat
+        svg-load("../images/github-logo.svg" fill=#ccd6f6, stroke=#ccd6f6);
+      &:hover {
+        background: center / contain no-repeat
+          svg-load("../images/github-logo.svg" fill=#64ffda, stroke=#64ffda);
+      }
+    }
+    .link_site {
+      background: center / contain no-repeat
+        svg-load("../images/newtab.svg" fill=#ccd6f6, stroke=#ccd6f6);
+
+      &:hover {
+        background: center / contain no-repeat
+          svg-load("../images/newtab.svg" fill=#64ffda, stroke=#64ffda);
+      }
+    }
+    @media screen and (min-width: 765px) {
+      justify-content: flex-end;
+    }
+  }
+  &-img {
+    grid-column: 1/-1;
+    border-radius: 10px;
+    grid-row: 1/-1;
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    opacity: 0.1;
+
+    @media screen and (min-width: 765px) {
+      grid-row: 2/4;
+      opacity: 1;
+      grid-column: 1/7;
+      background-color: var(--light-green);
+      transition: background-color var(--transition);
+      &:hover {
+        background-color: var(--white);
+      }
+    }
+    @media screen and (min-width: 1080px) {
+      grid-row: 1/-1;
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    @media screen and (min-width: 765px) {
+      mix-blend-mode: multiply;
+    }
+  }
+}
+.featured-project {
+  &:nth-of-type(2n + 2) {
+    .featured-project-content {
+      text-align: left;
+      @media screen and (min-width: 765px) {
+        grid-column: 1/9;
+      }
+    }
+    .featured-project-paragraph {
+      box-shadow: 10px 10px 30px -15px var(--navy-shadow);
+      &:hover {
+        box-shadow: 20px 20px 30px -15px var(--navy-shadow);
+      }
+    }
+    .featured-project-tech_used {
+      @media screen and (min-width: 765px) {
+        padding: 0 30% 0 0;
+      }
+    }
+    .featured-project-links {
+      justify-content: flex-start;
+    }
+    .featured-project-img {
+      @media screen and (min-width: 765px) {
+        grid-column: 7/-1;
+      }
+    }
+  }
+}
+.other-projects {
+  @include beforeTransition(100px);
+
+  &-heading {
+    margin-top: 100px;
+    text-align: center;
+    font-size: clamp(24px, 5vw, 30px);
+  }
+  &-container {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-top: 50px;
+  }
+}
+.other-project {
+  background-color: var(--light-navy);
+  padding: 2rem 1.5rem;
+  @include beforeTransition(100px, 1s);
+
+  &-links {
+    height: 50px;
+  }
+  &-header {
+    color: var(--white);
+    margin-bottom: 0.2em;
+    font-size: 1.5rem;
+  }
+  &-paragraph {
+    font-size: 1.2rem;
+    height: 150px;
+  }
+}

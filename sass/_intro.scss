@@ -1,0 +1,38 @@
+@use "./mixins" as *;
+
+.intro {
+  &-container {
+    @include flex(column, flex-start, flex-start);
+    > * {
+      @include beforeTransition(70%);
+    }
+    padding-top: 50px;
+    @media screen and (min-width: 765px) {
+      padding-top: 0;
+    }
+  }
+  &-text {
+    display: none;
+    @media screen and (min-width: 540px) {
+      display: block;
+      font-size: clamp(12px, 5vw, 16px);
+      color: var(--green);
+    }
+  }
+  &-heading {
+    font-size: 40px;
+    font-size: clamp(40px, 8vw, 80px);
+
+    &_lg {
+      color: var(--lightest-grey);
+      margin-bottom: 0.15em;
+    }
+    &_sub-heading {
+      line-height: 1;
+    }
+  }
+  &-paragraph {
+    font-size: var(--fz-paragraph);
+    margin: 1.5em 0;
+  }
+}

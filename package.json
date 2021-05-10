@@ -1,0 +1,35 @@
+{
+  "name": "portfolio2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass sass/main.scss public/styles.css",
+    "postcss": "postcss public/styles.css -o public/poststyles.css --config src",
+    "build": "npm run sass && npm run postcss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coDevAnki/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coDevAnki/portfolio/issues"
+  },
+  "homepage": "https://github.com/coDevAnki/portfolio#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "mini-css-extract-plugin": "^1.6.0",
+    "postcss": "^8.2.13",
+    "postcss-cli": "^8.3.1",
+    "postcss-inline-svg": "^5.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.32.12",
+    "sass-loader": "^11.0.1",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

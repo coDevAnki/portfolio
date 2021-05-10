@@ -1,0 +1,43 @@
+@use "./mixins" as *;
+
+.contact-container {
+  @include flex(column);
+  padding-top: 100px;
+  max-width: 600px;
+  margin: auto;
+}
+.contact {
+  &-whatsnext {
+    color: var(--green);
+    font-size: 1rem;
+  }
+  &-header {
+    color: var(--lightest-grey);
+    font-size: clamp(40px, 5vw, 60px);
+  }
+  &-paragraph {
+    text-align: center;
+    font-size: var(--fz-paragraph);
+    margin: 1.5rem 0 2rem 0;
+  }
+}
+.social_links_container {
+  @include flex;
+  height: 200px;
+  li {
+    width: 25px;
+    height: 25px;
+    margin: 1rem;
+  }
+  svg {
+    color: var(--light-grey);
+    transition: color var(--transition);
+    &:hover,
+    &:focus {
+      color: var(--green);
+    }
+  }
+  @media screen and (min-width: 765px) {
+    display: none;
+  }
+}

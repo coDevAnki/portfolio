@@ -1,0 +1,166 @@
+@use "./mixins" as *;
+
+.header-nav {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(var(--rgb-navy), 0.85);
+  @include flex;
+  justify-content: space-between;
+  top: 0;
+  z-index: 100;
+}
+
+.hambuger-icon {
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 200;
+  transition: 0.15s linear all;
+  cursor: pointer;
+  @include flex(column, space-around);
+  @media screen and (min-width: 765px) {
+    display: none;
+  }
+  .ham-line {
+    height: 2px;
+    width: 100%;
+    background-color: var(--green);
+    transform-origin: right;
+    transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+    &_1 {
+      transform: scaleX(1);
+    }
+    &_2 {
+      transform: scaleX(0.8);
+    }
+    &_3 {
+      transform: scaleX(0.6);
+    }
+  }
+  &.show_nav {
+    transform: rotateZ(270deg);
+    .ham-line {
+      &_1 {
+        transform: scaleX(1) rotate(-40deg);
+      }
+      &_2 {
+        transform: scaleX(1);
+        opacity: 0;
+      }
+      &_3 {
+        transform: scaleX(1) rotate(40deg);
+      }
+    }
+  }
+}
+
+.drawer-menu {
+  position: absolute;
+  height: 100vh;
+  width: 30vw;
+  min-width: 200px;
+  z-index: 150;
+  right: 0;
+  top: 0;
+  background-color: var(--light-navy);
+  padding-top: 70px;
+  transform: translateX(100%);
+  transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+
+  @media screen and (min-width: 765px) {
+    display: none;
+  }
+  &-container {
+    margin: auto;
+    @include flex(column, space-evenly);
+    height: 40%;
+    min-height: 200px;
+    width: 80%;
+    font-size: clamp(13px, 4vw, 18px);
+    @media screen and (min-width: 600px) {
+      justify-content: space-around;
+    }
+  }
+
+  &.show_drawer-menu {
+    transform: none;
+  }
+}
+.nav {
+  &-container {
+    padding: 2rem;
+    margin-left: auto;
+    display: none;
+    @media screen and (min-width: 765px) {
+      @include flex;
+    }
+  }
+  &-item {
+    margin: 0 1rem;
+    @include beforeTransition(-50px);
+  }
+  &-link {
+    color: var(--white);
+    transition: color var(--transition);
+    &:hover,
+    &:focus {
+      color: var(--green);
+    }
+  }
+}
+
+.fixed-nav {
+  display: none;
+  position: fixed;
+  top: 40vh;
+  @media screen and (min-width: 765px) {
+    @include flex(column);
+  }
+  &::after {
+    content: "";
+    width: 2px;
+    background-color: var(--lightest-grey);
+    height: 28vh;
+    position: fixed;
+    bottom: 0;
+  }
+  &-left {
+    left: 1em;
+    color: var(--lightest-grey);
+
+    li {
+      margin: 20px 0;
+      width: 20px;
+      height: 20px;
+      svg {
+        transition: all var(--transition);
+      }
+      &:hover {
+        svg {
+          color: var(--green);
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+  &-right {
+    right: 1em;
+    .email-fixed {
+      writing-mode: vertical-rl;
+      a {
+        display: block;
+        transition: all var(--transition);
+        &:hover {
+          color: var(--green);
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+  a {
+    color: var(--lightest-grey);
+  }
+}
