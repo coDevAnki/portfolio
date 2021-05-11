@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass sass/main.scss public/styles.css",
+    "sass:watch": "sass -w sass/main.scss public/styles.css",
     "postcss": "postcss public/styles.css -o public/poststyles.css --config src",
+    "postcss:watch": "postcss -w public/styles.css -o public/poststyles.css --config src",
     "build": "npm run sass && npm run postcss"
   },
   "repository": {

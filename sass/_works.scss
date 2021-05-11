@@ -81,19 +81,25 @@
     }
     .link_github {
       background: center / contain no-repeat
-        svg-load("../images/github-logo.svg" fill=#ccd6f6, stroke=#ccd6f6);
+        svg-load(
+          "../public/images/github-logo.svg" fill=#ccd6f6,
+          stroke=#ccd6f6
+        );
       &:hover {
         background: center / contain no-repeat
-          svg-load("../images/github-logo.svg" fill=#64ffda, stroke=#64ffda);
+          svg-load(
+            "../public/images/github-logo.svg" fill=#64ffda,
+            stroke=#64ffda
+          );
       }
     }
     .link_site {
       background: center / contain no-repeat
-        svg-load("../images/newtab.svg" fill=#ccd6f6, stroke=#ccd6f6);
+        svg-load("../public/images/newtab.svg" fill=#ccd6f6, stroke=#ccd6f6);
 
       &:hover {
         background: center / contain no-repeat
-          svg-load("../images/newtab.svg" fill=#64ffda, stroke=#64ffda);
+          svg-load("../public/images/newtab.svg" fill=#64ffda, stroke=#64ffda);
       }
     }
     @media screen and (min-width: 765px) {
@@ -121,7 +127,8 @@
       grid-row: 1/-1;
     }
   }
-  img {
+  img,
+  source {
     width: 100%;
     height: 100%;
     @media screen and (min-width: 765px) {
