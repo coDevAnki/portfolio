@@ -4,19 +4,21 @@
   @include flex(column);
   padding-top: 100px;
   max-width: 600px;
+  text-align: center;
   margin: auto;
 }
 .contact {
   &-whatsnext {
     color: var(--green);
     font-size: 1rem;
+    text-align: center;
   }
   &-header {
     color: var(--lightest-grey);
     font-size: clamp(40px, 5vw, 60px);
+    margin: 1rem 0;
   }
   &-paragraph {
-    text-align: center;
     font-size: var(--fz-paragraph);
     margin: 1.5rem 0 2rem 0;
   }

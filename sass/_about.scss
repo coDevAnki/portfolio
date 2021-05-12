@@ -9,10 +9,6 @@
     }
 
     .about-content {
-      @media screen and (min-width: 800px) {
-        // width: 150%;
-      }
-
       p {
         width: 100%;
         margin-bottom: 0.8em;
@@ -22,6 +18,7 @@
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
 
         li::before {
           content: "▹";
@@ -31,14 +28,13 @@
     }
     .profile-image {
       margin-top: 3rem;
-      align-self: flex-start;
-      min-width: 330px;
+      min-width: 280px;
+      max-width: 500px;
       height: 300px;
       .profile-image_wrapper {
-        width: 50%;
+        width: 60%;
         margin-left: auto;
         margin-right: auto;
-        min-width: 280px;
         @media screen and (min-width: 800px) {
           width: 80%;
           margin-left: auto;
@@ -66,6 +62,7 @@
           }
         }
       }
+      picture,
       img {
         display: block;
         object-fit: cover;

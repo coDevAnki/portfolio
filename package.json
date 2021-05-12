@@ -23,15 +23,10 @@
   "homepage": "https://github.com/coDevAnki/portfolio#readme",
   "devDependencies": {
     "autoprefixer": "^9.8.6",
-    "mini-css-extract-plugin": "^1.6.0",
     "postcss": "^8.2.13",
     "postcss-cli": "^8.3.1",
     "postcss-inline-svg": "^5.0.0",
     "postcss-preset-env": "^6.7.0",
-    "sass": "^1.32.12",
-    "sass-loader": "^11.0.1",
-    "webpack": "^5.36.2",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+    "sass": "^1.32.12"
   }
 }

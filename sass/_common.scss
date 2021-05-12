@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 1300px;
   height: max-content;
-  padding: 25px;
+  padding: 1.8rem;
 
   @include flex(column);
 
@@ -21,14 +21,14 @@
     }
   }
   @media screen and (min-width: 480px) {
-    padding: 50px;
+    padding: 4rem;
   }
 
   @media screen and (min-width: 765px) {
-    padding: 100px;
+    padding: 6rem;
   }
   @media screen and (min-width: 1080px) {
-    padding: 130px;
+    padding: 8rem;
   }
 }
 
@@ -61,6 +61,8 @@
   padding: 0.8em 2em;
   transition: background-color var(--transition);
   cursor: pointer;
+  text-align: center;
+  word-wrap: nowrap;
   &:hover,
   &:focus {
     background-color: var(--green-tint);

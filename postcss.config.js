@@ -1,3 +1,7 @@
 module.exports = {
-  plugins: [require("autoprefixer"), require("postcss-inline-svg")],
+  plugins: [
+    require("postcss-preset-env"),
+    require("autoprefixer"),
+    require("postcss-inline-svg"),
+  ],
 };

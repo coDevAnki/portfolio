@@ -8,6 +8,7 @@
   justify-content: space-between;
   top: 0;
   z-index: 100;
+  margin-bottom: 1.5rem;
 }
 
 .hambuger-icon {
@@ -116,6 +117,7 @@
   display: none;
   position: fixed;
   top: 40vh;
+  margin: 0 1rem;
   @media screen and (min-width: 765px) {
     @include flex(column);
   }
