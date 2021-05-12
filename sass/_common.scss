@@ -1,4 +1,5 @@
 @use "./mixins" as *;
+
 .main-container {
   width: 100%;
   max-width: 1300px;
@@ -6,7 +7,6 @@
   padding: 3rem 1.8rem;
 
   @include flex(column);
-
   & > * {
     width: 100%;
     margin-bottom: 100px;
@@ -23,12 +23,11 @@
   @media screen and (min-width: 480px) {
     padding: 3rem 4rem;
   }
-
   @media screen and (min-width: 765px) {
-    padding: 3rem 6rem;
+    padding: 6rem 6rem;
   }
   @media screen and (min-width: 1080px) {
-    padding: 4rem 8rem;
+    padding: 6rem 8rem;
   }
 }
 
@@ -38,7 +37,7 @@
   @include flex(row, flex-start);
   white-space: nowrap;
   font-size: clamp(26px, 5vw, 32px);
-
+  margin-bottom: 1rem;
   &::after {
     content: "";
     height: 1px;
@@ -47,7 +46,6 @@
     background-color: var(--lightest-navy);
     width: 100%;
   }
-  margin-bottom: 1rem;
   @media screen and (min-width: 765px) {
     margin-bottom: 2rem;
   }

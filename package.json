@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/coDevAnki/portfolio#readme",
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
     "postcss": "^8.2.13",
     "postcss-cli": "^8.3.1",
     "postcss-inline-svg": "^5.0.0",

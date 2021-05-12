@@ -1,7 +1,6 @@
 module.exports = {
   plugins: [
-    require("postcss-preset-env"),
-    require("autoprefixer"),
+    require("postcss-preset-env")({ autoprefixer: { grid: true } }),
     require("postcss-inline-svg"),
   ],
 };

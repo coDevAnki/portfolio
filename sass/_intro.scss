@@ -6,7 +6,6 @@
     > * {
       @include beforeTransition(70%);
     }
-    // padding-top: 50px;
     min-height: 80vh;
     @media screen and (min-width: 765px) {
       padding-top: 0;
@@ -16,6 +15,8 @@
     font-size: clamp(12px, 5vw, 16px);
     color: var(--green);
     white-space: nowrap;
+    // position: relative;
+    // z-index: 200;
   }
   &-heading {
     font-size: 40px;

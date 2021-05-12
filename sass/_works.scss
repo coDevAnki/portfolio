@@ -1,10 +1,55 @@
 @use "./mixins" as *;
+
+@mixin customLink($url) {
+  background: center / contain no-repeat
+    svg-load($url fill=#ccd6f6, stroke=#ccd6f6);
+  &:hover {
+    background: center / contain no-repeat
+      svg-load($url fill=#64ffda, stroke=#64ffda);
+  }
+}
+@mixin sharedLinkContainer {
+  display: flex;
+  cursor: pointer;
+  pointer-events: auto;
+  a {
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: 0 0.6rem;
+    transition: var(--transition);
+  }
+}
+
+@mixin sharedTechUsed {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: var(--light-grey);
+  word-spacing: 1rem;
+  pointer-events: none;
+  text-transform: capitalize;
+}
+
+@mixin projectImageHover {
+}
+
+.link_github {
+  @include customLink("../public/images/github-logo.svg");
+}
+.link_site {
+  @include customLink("../public/images/newtab.svg");
+}
+
 .works-container {
   padding-top: 100px;
 }
 .featured-project {
   @include beforeTransition(100px, 1s);
-  display: grid;
+  // flex as fallback for grid
+  display: flex;
+  @supports (display: grid) {
+    display: grid;
+  }
   margin-top: 2rem;
   margin-bottom: 10rem;
   grid-template-columns: repeat(12, 1fr);
@@ -57,50 +102,13 @@
     }
   }
   &-tech_used {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    color: var(--light-grey);
-    word-spacing: 1rem;
-    pointer-events: none;
-    text-transform: capitalize;
+    @include sharedTechUsed;
     @media screen and (min-width: 765px) {
       padding: 0 0 0 30%;
     }
   }
   &-links {
-    display: flex;
-    cursor: pointer;
-    pointer-events: auto;
-    a {
-      display: block;
-      width: 25px;
-      height: 25px;
-      margin: 0 0.6rem;
-      transition: var(--transition);
-    }
-    .link_github {
-      background: center / contain no-repeat
-        svg-load(
-          "../public/images/github-logo.svg" fill=#ccd6f6,
-          stroke=#ccd6f6
-        );
-      &:hover {
-        background: center / contain no-repeat
-          svg-load(
-            "../public/images/github-logo.svg" fill=#64ffda,
-            stroke=#64ffda
-          );
-      }
-    }
-    .link_site {
-      background: center / contain no-repeat
-        svg-load("../public/images/newtab.svg" fill=#ccd6f6, stroke=#ccd6f6);
-
-      &:hover {
-        background: center / contain no-repeat
-          svg-load("../public/images/newtab.svg" fill=#64ffda, stroke=#64ffda);
-      }
-    }
+    @include sharedLinkContainer;
     @media screen and (min-width: 765px) {
       justify-content: flex-end;
     }
@@ -170,10 +178,16 @@
   &-heading {
     margin-top: 100px;
     text-align: center;
+    font-size: 2rem;
     font-size: clamp(24px, 5vw, 30px);
   }
   &-container {
-    display: grid;
+    // flex as fallback for grid
+    display: flex;
+    flex-direction: column;
+    @supports (display: grid) {
+      display: grid;
+    }
     gap: 50px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     margin-top: 50px;
@@ -183,9 +197,11 @@
   background-color: var(--light-navy);
   padding: 2rem 1.5rem;
   @include beforeTransition(100px, 1s);
+  margin: 1rem auto;
 
   &-links {
-    height: 50px;
+    @include sharedLinkContainer;
+    justify-content: flex-end;
   }
   &-header {
     color: var(--white);
@@ -194,6 +210,32 @@
   }
   &-paragraph {
     font-size: 1.2rem;
-    height: 150px;
+    height: 100px;
+    color: var(--lightest-grey);
+    padding: 1rem 0;
+  }
+  &-footer {
+    @include flex(row, space-between);
+  }
+
+  &-tech_used {
+    @include sharedTechUsed;
+  }
+  &-img {
+    width: 70px;
+    height: 50px;
+    background-color: var(--grey);
+    margin: 1em;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color var(--transition);
+    &:hover {
+      background-color: var(--white);
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: multiply;
+    }
   }
 }

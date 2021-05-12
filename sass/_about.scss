@@ -16,10 +16,14 @@
       }
       .skill-set {
         width: 100%;
-        display: grid;
+        // flex as fallback for grid
+        display: flex;
+        @supports (display: grid){
+          display: grid;
+        }
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1rem;
-
+    
         li::before {
           content: "▹";
           color: var(--green);

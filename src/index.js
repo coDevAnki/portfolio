@@ -43,9 +43,12 @@ function addTransition(container, mainContainer = false) {
 
 addTransition(select(".main-container"), true);
 addTransition(select(".featrued-projects-container"));
-// addTransition(select(".other-projects-container"));
+addTransition(select(".other-projects-container"));
 
 select(".hambuger-icon").addEventListener("click", () => {
   select(".hambuger-icon").classList.toggle("show_nav");
   select(".drawer-menu").classList.toggle("show_drawer-menu");
 });
+
+
+
