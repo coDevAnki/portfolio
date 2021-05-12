@@ -62,7 +62,7 @@
   transition: background-color var(--transition);
   cursor: pointer;
   text-align: center;
-  word-wrap: nowrap;
+  white-space: nowrap;
   &:hover,
   &:focus {
     background-color: var(--green-tint);
