@@ -43,7 +43,7 @@ body {
   width: 100%;
   max-width: 1300px;
   height: max-content;
-  padding: 1.8rem;
+  padding: 3rem 1.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,17 +70,17 @@ body {
 }
 @media screen and (min-width: 480px) {
   .main-container {
-    padding: 4rem;
+    padding: 3rem 4rem;
   }
 }
 @media screen and (min-width: 765px) {
   .main-container {
-    padding: 6rem;
+    padding: 3rem 6rem;
   }
 }
 @media screen and (min-width: 1080px) {
   .main-container {
-    padding: 8rem;
+    padding: 4rem 8rem;
   }
 }
 
@@ -118,7 +118,7 @@ body {
   transition: background-color var(--transition);
   cursor: pointer;
   text-align: center;
-  word-wrap: nowrap;
+  white-space: nowrap;
 }
 .btn_link:hover, .btn_link:focus {
   background-color: var(--green-tint);
@@ -135,7 +135,6 @@ body {
   justify-content: space-between;
   top: 0;
   z-index: 100;
-  margin-bottom: 1.5rem;
 }
 
 .hambuger-icon {
@@ -312,9 +311,8 @@ body {
 .intro-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
-  padding-top: 50px;
   min-height: 80vh;
 }
 .intro-container > * {
@@ -330,6 +328,7 @@ body {
 .intro-text {
   font-size: clamp(12px, 5vw, 16px);
   color: var(--green);
+  white-space: nowrap;
 }
 .intro-heading {
   font-size: 40px;
@@ -642,6 +641,7 @@ body {
   color: var(--green);
   font-size: 1rem;
   text-align: center;
+  white-space: nowrap;
 }
 .contact-header {
   color: var(--lightest-grey);

@@ -2,11 +2,11 @@
 
 .intro {
   &-container {
-    @include flex(column, flex-start, flex-start);
+    @include flex(column, center, flex-start);
     > * {
       @include beforeTransition(70%);
     }
-    padding-top: 50px;
+    // padding-top: 50px;
     min-height: 80vh;
     @media screen and (min-width: 765px) {
       padding-top: 0;
