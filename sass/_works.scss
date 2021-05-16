@@ -30,21 +30,91 @@
   text-transform: capitalize;
 }
 
-@mixin projectImageHover {
-}
-
 .link_github {
   @include customLink("../public/images/github-logo.svg");
 }
 .link_site {
   @include customLink("../public/images/newtab.svg");
 }
-
+.link_info {
+  @include customLink("../public/images/info.svg");
+  &:focus {
+    .info_content {
+      display: block;
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+.info_content {
+  text-align: left;
+  position: absolute;
+  display: none;
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  color: white;
+  background-color: rgb(10, 25, 47);
+  border: 12px solid var(--green);
+  border-radius: 5px;
+  @include flex;
+  flex-direction: column;
+  transition: var(--transition);
+  transition-duration: 0.5s;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  z-index: 5;
+  &_container {
+    @include flex(column);
+    width: 100%;
+    @media screen and (min-width: 765px) {
+      flex-direction: row-reverse;
+    }
+  }
+  .info_content_deatils_container {
+    flex: 1;
+    padding: 0.5rem;
+    color: var(--lightest-grey);
+    .content_detail_header {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    h5 {
+      font-size: 1rem;
+      margin-top: 1rem;
+      &::before {
+        content: "▹";
+        color: var(--green);
+      }
+    }
+    p {
+      color: var(--light-grey);
+      padding: 0.3rem 1rem;
+    }
+    li {
+      color: var(--light-grey);
+      padding: 0.1rem 1rem;
+      &::before {
+        content: "~";
+      }
+    }
+    span.marked {
+      color: var(--light-green);
+    }
+  }
+}
 .works-container {
   padding-top: 100px;
 }
 .featured-project {
+  position: relative;
   @include beforeTransition(100px, 1s);
+  z-index: 1;
+  &:focus-within {
+    z-index: 50;
+  }
   // flex as fallback for grid
   display: flex;
   @supports (display: grid) {
@@ -60,7 +130,6 @@
     grid-row: 1/-1;
     padding: 2.5rem;
     z-index: 10;
-    pointer-events: none;
     opacity: 0.9;
     margin: 2rem auto;
     @media screen and (min-width: 765px) {
@@ -68,6 +137,7 @@
       background-color: transparent;
       grid-column: 5 /-1;
       text-align: right;
+      pointer-events: none;
     }
   }
 
@@ -76,13 +146,23 @@
     font-size: 1rem;
     line-height: 0.6;
     margin-bottom: 0.7em;
+    letter-spacing: 1px;
+    line-height: 1em;
   }
 
   &-header {
-    color: var(--white);
     font-size: clamp(22px, 3vw, 30px);
     margin-bottom: 1em;
     line-height: 1.2;
+    color: var(--white);
+    a {
+      pointer-events: all;
+      color: var(--white);
+      cursor: pointer;
+      &:hover {
+        color: var(--green);
+      }
+    }
   }
 
   &-paragraph {
@@ -133,13 +213,15 @@
     @media screen and (min-width: 1080px) {
       grid-row: 1/-1;
     }
-  }
-  img,
-  source {
-    width: 100%;
-    height: 100%;
-    @media screen and (min-width: 765px) {
-      mix-blend-mode: multiply;
+
+    img,
+    source {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      @media screen and (min-width: 765px) {
+        mix-blend-mode: multiply;
+      }
     }
   }
 }
@@ -152,9 +234,11 @@
       }
     }
     .featured-project-paragraph {
-      box-shadow: 10px 10px 30px -15px var(--navy-shadow);
-      &:hover {
-        box-shadow: 20px 20px 30px -15px var(--navy-shadow);
+      @media screen and (min-width: 765px) {
+        box-shadow: 10px 10px 30px -15px var(--navy-shadow);
+        &:hover {
+          box-shadow: 20px 20px 30px -15px var(--navy-shadow);
+        }
       }
     }
     .featured-project-tech_used {
@@ -165,6 +249,7 @@
     .featured-project-links {
       justify-content: flex-start;
     }
+
     .featured-project-img {
       @media screen and (min-width: 765px) {
         grid-column: 7/-1;
@@ -204,9 +289,15 @@
     justify-content: flex-end;
   }
   &-header {
-    color: var(--white);
     margin-bottom: 0.2em;
     font-size: 1.5rem;
+    a {
+      color: var(--white);
+      transition: var(--transition);
+      &:hover {
+        color: var(--green);
+      }
+    }
   }
   &-paragraph {
     font-size: 1.2rem;
