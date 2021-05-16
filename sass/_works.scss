@@ -54,9 +54,10 @@
   width: 100%;
   top: 0;
   right: 0;
-  color: white;
-  background-color: rgb(10, 25, 47);
-  border: 12px solid var(--green);
+  color: var(--white);
+  background-color: var(--navy);
+  border: 10px solid var(--green);
+  box-shadow: 0 5px 5px 2px var(--navy-shadow);
   border-radius: 5px;
   @include flex;
   flex-direction: column;
@@ -78,6 +79,7 @@
     padding: 0.5rem;
     color: var(--lightest-grey);
     .content_detail_header {
+      margin: 0.5em;
       margin-bottom: 1rem;
       font-size: 1.2rem;
     }
@@ -87,17 +89,19 @@
       &::before {
         content: "▹";
         color: var(--green);
+        margin-right: 5px;
       }
     }
     p {
       color: var(--light-grey);
-      padding: 0.3rem 1rem;
+      padding: 0.3rem calc(1rem + 5px);
     }
     li {
       color: var(--light-grey);
       padding: 0.1rem 1rem;
       &::before {
         content: "~";
+        margin-right: 2px;
       }
     }
     span.marked {

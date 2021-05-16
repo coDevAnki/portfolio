@@ -18,12 +18,13 @@
         width: 100%;
         // flex as fallback for grid
         display: flex;
-        @supports (display: grid){
+        @supports (display: grid) {
           display: grid;
         }
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1rem;
-    
+        row-gap: 0.5rem;
+
         li::before {
           content: "▹";
           color: var(--green);

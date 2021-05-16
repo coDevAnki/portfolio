@@ -70,6 +70,7 @@
     transition: var(--transition);
   }
   input,
+  input:-webkit-autofill,
   textarea {
     font-size: 1.3rem;
     padding: 0.3em 0;
