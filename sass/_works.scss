@@ -93,13 +93,13 @@
         margin-right: 5px;
       }
     }
-    p {
+    p,
+    ul {
       color: var(--light-grey);
       padding: 0.3rem calc(1rem + 5px);
     }
     li {
       color: var(--light-grey);
-      padding: 0.1rem 1rem;
       &::before {
         content: "~";
         margin-right: 2px;
@@ -133,16 +133,17 @@
   &-content {
     grid-column: 1/-1;
     grid-row: 1/-1;
-    padding: 2.5rem;
     z-index: 10;
     opacity: 0.9;
     margin: 2rem auto;
+    padding: 2.5rem;
     @media screen and (min-width: 765px) {
       opacity: 1;
       background-color: transparent;
       grid-column: 5 /-1;
       text-align: right;
       pointer-events: none;
+      padding-right: 0;
     }
   }
 
@@ -236,6 +237,8 @@
       text-align: left;
       @media screen and (min-width: 765px) {
         grid-column: 1/9;
+        padding-right: 2.5rem;
+        padding-left: 0;
       }
     }
     .featured-project-paragraph {

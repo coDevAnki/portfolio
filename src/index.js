@@ -30,7 +30,6 @@ function addTransition(container, mainContainer = false) {
   Array.from(container.children).forEach((section, i) => {
     if (mainContainer && (i === 0 || i === container.children.length - 1))
       return;
-    if (container === select("#contact")) console.log("hello");
     let observer = new IntersectionObserver(
       (e) => {
         if (e[0].isIntersecting) {
