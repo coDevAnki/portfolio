@@ -28,7 +28,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function addTransition(container, mainContainer = false) {
   Array.from(container.children).forEach((section, i) => {
-    if (mainContainer && i === 0) return;
+    if (mainContainer && (i === 0 || i === container.children.length - 1))
+      return;
+    if (container === select("#contact")) console.log("hello");
     let observer = new IntersectionObserver(
       (e) => {
         if (e[0].isIntersecting) {
@@ -36,7 +38,7 @@ function addTransition(container, mainContainer = false) {
           observer.unobserve(section);
         }
       },
-      { threshold: mainContainer ? 0 : 0.5 }
+      { threshold: mainContainer ? 0 : 0.3 }
     );
     observer.observe(section);
   });
@@ -45,6 +47,7 @@ function addTransition(container, mainContainer = false) {
 addTransition(select(".main-container"), true);
 addTransition(select(".featrued-projects-container"));
 addTransition(select(".other-projects-container"));
+addTransition(select("#contact"));
 
 const menuControl = (() => {
   let isOpen = false;

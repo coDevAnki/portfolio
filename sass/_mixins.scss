@@ -6,9 +6,9 @@
 }
 
 @mixin beforeTransition($translateY: -100%, $duration: 0.6s, $opacity: 0) {
-  @supports(display:grid){
+  @supports (display: grid) {
     transform: translateY($translateY);
     opacity: $opacity;
     transition: $duration ease-in-out transform, $duration ease-in-out opacity;
-}
+  }
 }

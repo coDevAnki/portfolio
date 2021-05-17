@@ -72,7 +72,7 @@ body {
   }
 }
 @supports (display: grid) {
-  .main-container > *:not(#intro) {
+  .main-container > *:not(#intro):not(#contact) {
     transform: translateY(100px);
     opacity: 0;
     transition: 1s ease-in-out transform, 1s ease-in-out opacity;
@@ -410,19 +410,24 @@ body {
   align-items: center;
   padding-top: 100px;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
   .about-container {
     flex-direction: row;
   }
 }
 .about-container .about-content p {
-  width: 100%;
-  margin-bottom: 0.8em;
+  margin: 0.4em 0;
   font-size: clamp(13px, 18px, 21px);
   font-size: var(--fz-paragraph);
 }
+.about-container .about-content .para_header {
+  color: #a8b2d1;
+  color: var(--light-grey);
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem 0;
+}
 .about-container .about-content .skill-set {
-  width: 100%;
+  margin: 0.5em 0;
   display: flex;
   -ms-grid-columns: (1fr)[2];
   grid-template-columns: repeat(2, 1fr);
@@ -445,9 +450,19 @@ body {
 }
 .about-container .profile-image {
   margin-top: 3rem;
+  width: 100%;
   min-width: 280px;
-  max-width: 500px;
-  height: 300px;
+  height: 400px;
+}
+@media screen and (min-width: 900px) {
+  .about-container .profile-image {
+    min-width: 350px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .about-container .profile-image {
+    margin-left: 1rem;
+  }
 }
 .about-container .profile-image .profile-image_wrapper {
   width: 60%;
@@ -459,9 +474,9 @@ body {
   transition: background-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: background-color var(--transition);
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
   .about-container .profile-image .profile-image_wrapper {
-    width: 80%;
+    width: 75%;
     margin-left: auto;
     margin-right: 0;
   }
@@ -553,6 +568,7 @@ body {
   transform-origin: top;
   opacity: 0;
   z-index: 5;
+  cursor: auto;
 }
 .info_content_container {
   display: flex;
@@ -929,6 +945,14 @@ body {
   mix-blend-mode: multiply;
 }
 
+@supports (display: grid) {
+  #contact > * {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.6s ease-in-out transform, 0.6s ease-in-out opacity;
+  }
+}
+
 .contact-container {
   display: flex;
   flex-direction: column;
@@ -1049,7 +1073,9 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 20vh;
+  margin-top: 20vh;
+  align-items: flex-end;
 }
 .social_links_container li {
   width: 25px;
@@ -1073,7 +1099,7 @@ body {
 }
 
 .footer_container {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   text-align: center;
 }
 

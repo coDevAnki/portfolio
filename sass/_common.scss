@@ -16,7 +16,7 @@
     @media screen and (min-width: 765px) {
       margin-bottom: 220px;
     }
-    &:not(#intro) {
+    &:not(#intro):not(#contact) {
       @include beforeTransition(100px, 1s);
     }
   }

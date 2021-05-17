@@ -67,6 +67,7 @@
   transform-origin: top;
   opacity: 0;
   z-index: 5;
+  cursor: auto;
   &_container {
     @include flex(column);
     width: 100%;
