@@ -123,6 +123,10 @@
       color: var(--green);
     }
   }
+  &-link.btn_link {
+    color: var(--green);
+    padding: 0.4em 0.7em;
+  }
 }
 
 .fixed-nav {

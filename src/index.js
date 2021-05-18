@@ -66,7 +66,6 @@ const menuControl = (() => {
     }
   };
   function clickListener(e) {
-    console.log(select(".drawer-menu").contains(e.target));
     if (select(".drawer-menu").contains(e.target) === false) {
       toggleMenu("close");
     }

@@ -279,6 +279,10 @@ body {
 .nav-link:hover, .nav-link:focus {
   color: var(--green);
 }
+.nav-link.btn_link {
+  color: var(--green);
+  padding: 0.4em 0.7em;
+}
 
 .fixed-nav {
   display: none;
